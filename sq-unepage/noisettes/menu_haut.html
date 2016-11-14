@@ -11,12 +11,13 @@
     <li class="double bloc1">
       #LOGO_SITE_SPIP
     </li>
+
   </div>
-	
+
 	<div id="menu_haut_titre_more">
   	<div class="select" name="annee_scolaire">
   		<input type="radio" value="#ENV{annee_scolaire}" class="first"><label class="first_label"><span id="annee_scolaire_more">année scolaire </span><span class="highlight">#ENV{annee_scolaire}/[(#ENV{annee_scolaire}|plus{1})]</span></label>
-  	   
+
   	   <div>
   			<BOUCLE_date(ARTICLES){par date}{date!=0000}{0,1}{tout}>
   			#SET{date_debut,#DATE}
@@ -27,16 +28,16 @@
   			[(#GET{date_debut}|annee|afficher_options_date2{[(#GET{date_debut}|mois)],[(#GET{date_fin}|annee)],[(#GET{date_fin}|mois)]})]
   		</div>
   	</div>
-  
-	
+
+
 	</div>
-	
+
 	<!--[(#MODELE{logo_menu}{valeur=aide}{title=Aide}{href=#CHEMIN{img/modeemploi.pdf}})]-->
 </ul>
 
 <script>
 $(function(){
-  
+
   if ($('#menu_haut_titre').width() <= 185) {
     $('#annee_scolaire_more').hide();
   }
@@ -64,19 +65,6 @@ $(function(){
     <a title="Publier un nouvel article" class="logo_menu-ecrire" onClick='createReponse(0, #RESTREINT);' >
       <div id='reponse_plus2' class='bouton_article_plus' ></div>
     </a>
-  </li>
-</ul>
-]
-[(#CONFIG{th/site_ent_nom}|match{laclasse}|oui)
-<ul id="menu_haut_logos" class="bloc_titre">
-  <li>
-    <a href="http://www.grandlyon.com" target="_blank"><img src="#CHEMIN{img/logos/LogoGrandLyon.svg}"></a>
-  </li>
-  <li>
-    <a href="http://www.erasme.org" target="_blank"><img src="#CHEMIN{img/logos/LogoErasme.svg}"></a>
-  </li>
-  <li>
-    <a href="http://www.interconnectes.com/finalistes-2015/" target="_blank"><img src="#CHEMIN{img/logos/LogoInterco.svg}"></a>
   </li>
 </ul>
 ]

@@ -26,6 +26,8 @@ $().ready(function(){
   onResize();
     
   function slideshowActualites(actu) {
+    if(!actu.length)
+      return
     var posY = actu.offset().top-$('#menu_bas .actualites-inner').offset().top;
     
     $('#menu_bas .actualites-inner').animate({scrollTop: (32*actu.index())},500);

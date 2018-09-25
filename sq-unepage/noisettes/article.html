@@ -257,8 +257,16 @@
           [(#REM)Documents joints]
           <B_documents_joints1>
             <BOUCLE_documents_joints1(DOCUMENTS){vu=non} {id_article} {doublons d}>
-                <div class="portfolio_grand">
-    
+              [(#MEDIA|match{'audio|video|image'}|oui)
+              <div class="portfolio_grand">
+                  [(#AUTORISER{modifier,article,#ID_ARTICLE}|oui)
+                      [<a href="(#URL_ACTION_AUTEUR{dissocier_document,#ID_ARTICLE-article-#ID_DOCUMENT-suppr-safe,#URL_SITE_SPIP/spip.php?article#_principale:ID_ARTICLE&var_mode=recalcul})"
+                          class='supprimer_couleur'
+                          onClick='return confirmation("Êtes-vous sûr de vouloir supprimer ce document ?")'
+                          title='Supprimer ce document' >
+                          <div class='action_supprimer'></div>
+                      </a>]
+                  ]
     
                   [(#MEDIA|match{'audio|video'}|oui)
                     <div class="audio">
@@ -299,6 +307,7 @@
                     
 
                   ]
+<<<<<<< HEAD
 
 
                   <!-- MODIF -->
@@ -331,31 +340,36 @@
   
             <B_documents_joints>
             <BOUCLE_documents_joints(DOCUMENTS) {vu=non}{id_article} {doublons d}>
-              <div class="portfolio">
-                <div onclick="location.href='#URL_DOCUMENT'" title="[(#TITRE|supprimer_numero)]" type="#MIME_TYPE" class="portfolio_lien">
-                  [<div class="portfolio_logo_around">(#LOGO_DOCUMENT||image_reduire{100}|inserer_attribut{class,'portfolio_logo'})</div>]
-                
-                  [(#AUTORISER{modifier,article,#ID_ARTICLE}|oui)
-                    [<div class="portfolio_titre"><div class="#EDIT{titre} spip_doc_titre">(#TITRE|supprimer_numero|sinon{<span class="ajouter_couleur" style="text-color: gray;">Ajouter un titre…</span>})</div></div>]
-                  ]
-                  
-                  [(#AUTORISER{modifier,article,#ID_ARTICLE}|non)
-                    [<div class="portfolio_titre"><div class="#EDIT{titre} spip_doc_titre">(#TITRE|supprimer_numero)</div></div>]
-                  ]
-                </div>
-                  
-                  
-               [(#AUTORISER{modifier,article,#ID_ARTICLE}|oui)
-                [<a href="(#URL_ACTION_AUTEUR{dissocier_document,#ID_ARTICLE-article-#ID_DOCUMENT-suppr-safe,#URL_SITE_SPIP/spip.php?article#_principale:ID_ARTICLE&var_mode=recalcul})"
-                    class='supprimer_couleur'
-                    onClick='return confirmation("Êtes-vous sûr de vouloir supprimer ce document ?")'
-                    title='Supprimer ce document' >
-                    <div class='action_supprimer'></div>
-                </a>]
-                ]
+=======
               </div>
-            </BOUCLE_documents_joints>
-            </B_documents_joints>
+              ]
+              [(#MEDIA|match{'audio|video|image'}|non)
+>>>>>>> [ODE] #20822 - fix access to document
+              <div class="portfolio">
+                  <div onclick="location.href='#URL_DOCUMENT'" title="[(#TITRE|supprimer_numero)]" type="#MIME_TYPE" class="portfolio_lien">
+                      [<div class="portfolio_logo_around">(#LOGO_DOCUMENT||image_reduire{100}|inserer_attribut{class,'portfolio_logo'})</div>]
+
+                      [(#AUTORISER{modifier,article,#ID_ARTICLE}|oui)
+                      [<div class="portfolio_titre"><div class="#EDIT{titre} spip_doc_titre">(#TITRE|supprimer_numero|sinon{<span class="ajouter_couleur" style="text-color: gray;">Ajouter un titre…</span>})</div></div>]
+                      ]
+
+                      [(#AUTORISER{modifier,article,#ID_ARTICLE}|non)
+                      [<div class="portfolio_titre"><div class="#EDIT{titre} spip_doc_titre">(#TITRE|supprimer_numero)</div></div>]
+                      ]
+                  </div>
+
+
+                  [(#AUTORISER{modifier,article,#ID_ARTICLE}|oui)
+                  [<a href="(#URL_ACTION_AUTEUR{dissocier_document,#ID_ARTICLE-article-#ID_DOCUMENT-suppr-safe,#URL_SITE_SPIP/spip.php?article#_principale:ID_ARTICLE&var_mode=recalcul})"
+                      class='supprimer_couleur'
+                      onClick='return confirmation("Êtes-vous sûr de vouloir supprimer ce document ?")'
+                      title='Supprimer ce document' >
+                  <div class='action_supprimer'></div>
+              </a>]
+                  ]
+              </div>
+              ]
+            </BOUCLE_documents_joints1>
             
       <B_documents_joints_compteur2>
           </div>  

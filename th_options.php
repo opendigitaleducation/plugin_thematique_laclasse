@@ -21,7 +21,7 @@
 	define('_mode_popup','complet');
 	//Fin vérification
 
-	$annee_scolaire = 2018;
+	$annee_scolaire = 2019;
 	define('_annee_cours',$annee_scolaire);
 
 	//Qualifie les médias pour les tris	
@@ -111,7 +111,7 @@
 	//define('_IMG_MAX_WIDTH',3000) ;
 	//define('_IMG_MAX_HEIGHT',3000) ;
 	//define('_IMG_MAX_SIZE',2024);
-	define('_DOC_MAX_SIZE', 10000);
+	define('_DOC_MAX_SIZE', 100000);
 
 // Désactiver les warnings PHP
 	error_reporting(error_reporting() & (-1 ^ E_DEPRECATED));
